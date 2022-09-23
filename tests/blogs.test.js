@@ -98,7 +98,7 @@ describe ('favorite blog', () => {
     expect(result).toEqual({
       title: 'Go To Statement Considered Harmful',
       author: 'Edsger W. Dijkstra',
-      likes: 5,
+      likes: 5
     })
   })
 
@@ -108,6 +108,52 @@ describe ('favorite blog', () => {
       title: "Canonical string reduction",
       author: "Edsger W. Dijkstra",
       likes: 12
+    })
+  })
+})
+
+describe ('most blogs', () => {
+  test('is NULL for an empty list', () => {
+    result = listHelper.mostBlogs([])
+    expect(result).toBe(null)
+  })
+  
+  test('has the one author in the list with only one entry', () => {
+    result = listHelper.mostBlogs(listWithOneBlog)
+    expect(result).toEqual({
+      author: 'Edsger W. Dijkstra',
+      blogs: 1
+    })
+  })
+
+  test('has the author with the most blogs in a bigger list', () => {
+    result = listHelper.mostBlogs(blogs)
+    expect(result).toEqual({
+      author: "Robert C. Martin",
+      blogs: 3
+    })
+  })
+})
+
+describe ('most likes', () => {
+  test('is NULL for an empty list', () => {
+    result = listHelper.mostLikes([])
+    expect(result).toBe(null)
+  })
+  
+  test('has the one author in the list with only one entry', () => {
+    result = listHelper.mostLikes(listWithOneBlog)
+    expect(result).toEqual({
+      author: 'Edsger W. Dijkstra',
+      likes: 5
+    })
+  })
+
+  test('has the author with the most likes in a bigger list', () => {
+    result = listHelper.mostLikes(blogs)
+    expect(result).toEqual({
+      author: "Edsger W. Dijkstra",
+      likes: 17
     })
   })
 })

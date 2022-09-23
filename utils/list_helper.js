@@ -23,9 +23,43 @@ const favoriteBlog = (blogs) => {
 }
 
 const mostBlogs = (blogs) => {
+    if (blogs.length === 0) {
+        return null
+    } else {
+        const list = []
+        blogs.forEach(blog => {
+            const itemWithSameAuthor = list.find(item => item.author === blog.author)
+            if (itemWithSameAuthor) {
+                itemWithSameAuthor.blogs +=1
+            } else {
+                list.push({ author: blog.author, blogs: 1 })
+            }   
+        })
     
+        const maxBlogCount = Math.max(...list.map(item => item.blogs))
+        return list.find(item => item.blogs === maxBlogCount)
+    } 
+}
+
+const mostLikes = (blogs) => {
+    if (blogs.length === 0) {
+        return null
+    } else {
+        const list = []
+        blogs.forEach(blog => {
+            const itemWithSameAuthor = list.find(item => item.author === blog.author)
+            if (itemWithSameAuthor) {
+                itemWithSameAuthor.likes += blog.likes
+            } else {
+                list.push({ author: blog.author, likes: blog.likes })
+            }   
+        })
+    
+        const maxLikes = Math.max(...list.map(item => item.likes))
+        return list.find(item => item.likes === maxLikes)
+    } 
 }
 
 module.exports = {
-    dummy, totalLikes, favoriteBlog
+    dummy, totalLikes, favoriteBlog, mostBlogs, mostLikes
 }
