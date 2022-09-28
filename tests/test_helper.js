@@ -60,7 +60,6 @@ const newBlogWithoutUrl = {
   author: "Supertest"
 }  
 
-
   module.exports = {
     initialBlogs, newBlog, newBlogWithoutLikes, newBlogWithoutTitle, newBlogWithoutUrl
   }
