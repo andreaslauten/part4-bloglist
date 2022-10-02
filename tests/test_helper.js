@@ -1,3 +1,5 @@
+let token = ''
+
 const initialBlogs = [
   {
     title: "React patterns",
@@ -61,5 +63,5 @@ const newBlogWithoutUrl = {
 }  
 
   module.exports = {
-    initialBlogs, newBlog, newBlogWithoutLikes, newBlogWithoutTitle, newBlogWithoutUrl
+    initialBlogs, newBlog, newBlogWithoutLikes, newBlogWithoutTitle, newBlogWithoutUrl, token
   }
